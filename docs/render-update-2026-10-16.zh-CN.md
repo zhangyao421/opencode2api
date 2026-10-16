@@ -19,6 +19,7 @@
 
 ## 本轮验证
 
+- 修复 Render 启动失败：`docker-entrypoint.sh` 已转换为 LF 换行，避免 Linux 将 shebang 解析为 `/bin/sh\r` 并报 `no such file or directory`；`.gitattributes` 已统一约束所有 `.sh` 文件使用 LF。
 - `go test ./...`：通过，包含端口、单端口路由、存活检查和 Render 管理/流式集成测试。
 - `go vet ./...`：通过。
 - `gofmt`：通过，26 个同步或适配的 Go 文件。
