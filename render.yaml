@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: opencode2api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /livez
+    envVars:
+      # Create a Secret File named config.json in the Render dashboard.
+      # It is required on first start and imported into the writable state dir.
+      - key: CONFIG_SEED_PATH
+        value: /etc/secrets/config.json
